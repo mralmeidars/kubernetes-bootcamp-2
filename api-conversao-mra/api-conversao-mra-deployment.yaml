@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conversao-mra-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-conversao-mra
+  template:
+    metadata:
+      labels:
+        app: api-conversao-mra
+    spec:
+      containers:
+        - name: site-api-conversao-mra
+          image: mralmeida/api-conversao-mra
+          ports:
+          - containerPort: 8080
